@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About Us" xml:space="preserve">
+    <value>من نحن</value>
+  </data>
+  <data name="Add New" xml:space="preserve">
+    <value>إضافة جديد</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>العنوان</value>
+  </data>
+  <data name="Book Now" xml:space="preserve">
+    <value>إحجز الأن</value>
+  </data>
+  <data name="Booking" xml:space="preserve">
+    <value>الحجز</value>
+  </data>
+  <data name="Booking Ref." xml:space="preserve">
+    <value>رقم الحجز</value>
+  </data>
+  <data name="Cities" xml:space="preserve">
+    <value>المدن</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>المدينة</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>إغلاق</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>اللون</value>
+  </data>
+  <data name="Company Profile" xml:space="preserve">
+    <value>ملف الشركة</value>
+  </data>
+  <data name="Contact Us" xml:space="preserve">
+    <value>إتصل بنا</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>التاريخ</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Destination" xml:space="preserve">
+    <value>الوجهة</value>
+  </data>
+  <data name="Direct Links" xml:space="preserve">
+    <value>روابط هامة</value>
+  </data>
+  <data name="Drivers" xml:space="preserve">
+    <value>السائقين</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>الإيميل</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Fleet" xml:space="preserve">
+    <value>الأسطول</value>
+  </data>
+  <data name="For reservation contact the number" xml:space="preserve">
+    <value>للحجز والإستعلام اتصل بالرقم</value>
+  </data>
+  <data name="From Station" xml:space="preserve">
+    <value>محطة الانطلاق</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>الاسم كامل</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="ID Number" xml:space="preserve">
+    <value>الهوية</value>
+  </data>
+  <data name="Leave Message" xml:space="preserve">
+    <value>اترك رسالتك</value>
+  </data>
+  <data name="Logo" xml:space="preserve">
+    <value>الشعار</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>الخروج</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>إجراء</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>الجوال</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>الموديل</value>
+  </data>
+  <data name="Modification" xml:space="preserve">
+    <value>التسجيل والتعديل</value>
+  </data>
+  <data name="My Account" xml:space="preserve">
+    <value>حسابي</value>
+  </data>
+  <data name="My Booking" xml:space="preserve">
+    <value>حجوزاتي</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الإسم</value>
+  </data>
+  <data name="New Booking" xml:space="preserve">
+    <value>حجز جديد</value>
+  </data>
+  <data name="Notifications" xml:space="preserve">
+    <value>التنبيهات</value>
+  </data>
+  <data name="Open Time" xml:space="preserve">
+    <value>أوقات العمل</value>
+  </data>
+  <data name="Our Fleet" xml:space="preserve">
+    <value>الأسطول</value>
+  </data>
+  <data name="Developers Comments" xml:space="preserve">
+    <value>Developers Comments</value>
+  </data>
+  <data name="Passenger" xml:space="preserve">
+    <value>الراكب</value>
+  </data>
+  <data name="Passenger Details" xml:space="preserve">
+    <value>بيانات الراكب</value>
+  </data>
+  <data name="Passengers" xml:space="preserve">
+    <value>المسافرين</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="Photo" xml:space="preserve">
+    <value>الصورة</value>
+  </data>
+  <data name="Plate Number" xml:space="preserve">
+    <value>رقم اللوحة</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>السعر</value>
+  </data>
+  <data name="Print Ticket" xml:space="preserve">
+    <value>طباعة</value>
+  </data>
+  <data name="Regsiteration Date" xml:space="preserve">
+    <value>تاريخ الحجز</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="Schedule" xml:space="preserve">
+    <value>جدول الرحلات</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>البحث</value>
+  </data>
+  <data name="Seats Count" xml:space="preserve">
+    <value>عدد المقاعد</value>
+  </data>
+  <data name="Send Message" xml:space="preserve">
+    <value>إرسال</value>
+  </data>
+  <data name="Serial No." xml:space="preserve">
+    <value>الرقم التسلسلي</value>
+  </data>
+  <data name="Setting" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="Station" xml:space="preserve">
+    <value>Station</value>
+  </data>
+  <data name="Stations" xml:space="preserve">
+    <value>المحطات</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>حالة الحجز</value>
+  </data>
+  <data name="Subscribe Newsletter" xml:space="preserve">
+    <value>انضم للقائمة البريدية</value>
+  </data>
+  <data name="Subscribe our newsletter or get notification about new updates." xml:space="preserve">
+    <value>انضم للقائمة البريدية لتصلك احدث العروض</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>الوقت</value>
+  </data>
+  <data name="To Station" xml:space="preserve">
+    <value>محطة الوصول</value>
+  </data>
+  <data name="Travel Date" xml:space="preserve">
+    <value>تاريخ المغادرة</value>
+  </data>
+  <data name="Trip Status" xml:space="preserve">
+    <value>حالات الرحلات</value>
+  </data>
+  <data name="Testimonials of team project" xml:space="preserve">
+    <value>شهادات من فريق المشروع</value>
+  </data>
+  <data name="Ultimate Solutions" xml:space="preserve">
+    <value>حلول متنوعة</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>تعديل</value>
+  </data>
+  <data name="Update Profile" xml:space="preserve">
+    <value>تعديل الحساب</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>المستخدمين</value>
+  </data>
+  <data name="Vehicle Type" xml:space="preserve">
+    <value>نوع السيارة</value>
+  </data>
+  <data name="Vehicles" xml:space="preserve">
+    <value>السيارات</value>
+  </data>
+  <data name="Vehicles Types" xml:space="preserve">
+    <value>أنواع السارات</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>عرض</value>
+  </data>
+  <data name="YOUR BSET TRAVEL EXPERINCE" xml:space="preserve">
+    <value>إختيارك الأفضل لتجربة سفر ممتعة</value>
+  </data>
+  <data name="العربية" xml:space="preserve">
+    <value>العربية</value>
+  </data>
+</root>

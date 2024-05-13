@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EntityModelStoreContainer" CdmEntityContainer="DBEntities">
+    <EntitySetMapping Name="tbl_City">
+      <EntityTypeMapping TypeName="EntityModel.tbl_City">
+        <MappingFragment StoreEntitySet="tbl_City">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Drivers">
+      <EntityTypeMapping TypeName="EntityModel.tbl_Drivers">
+        <MappingFragment StoreEntitySet="tbl_Drivers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="DriverIdNum" ColumnName="DriverIdNum" />
+          <ScalarProperty Name="DriverMobile" ColumnName="DriverMobile" />
+          <ScalarProperty Name="DriverAddress" ColumnName="DriverAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Passengers">
+      <EntityTypeMapping TypeName="EntityModel.tbl_Passengers">
+        <MappingFragment StoreEntitySet="tbl_Passengers">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PassengerName" ColumnName="PassengerName" />
+          <ScalarProperty Name="PassengerIdNum" ColumnName="PassengerIdNum" />
+          <ScalarProperty Name="PassengerMobile" ColumnName="PassengerMobile" />
+          <ScalarProperty Name="PassengerEmail" ColumnName="PassengerEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Stations">
+      <EntityTypeMapping TypeName="EntityModel.tbl_Stations">
+        <MappingFragment StoreEntitySet="tbl_Stations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="StationName" ColumnName="StationName" />
+          <ScalarProperty Name="StationAddress" ColumnName="StationAddress" />
+          <ScalarProperty Name="StationLongitude" ColumnName="StationLongitude" />
+          <ScalarProperty Name="StationLatitude" ColumnName="StationLatitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TripStatus">
+      <EntityTypeMapping TypeName="EntityModel.tbl_TripStatus">
+        <MappingFragment StoreEntitySet="tbl_TripStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TripStatus" ColumnName="TripStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Users">
+      <EntityTypeMapping TypeName="EntityModel.tbl_Users">
+        <MappingFragment StoreEntitySet="tbl_Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StationId" ColumnName="StationId" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="UserMobile" ColumnName="UserMobile" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Vehicles">
+      <EntityTypeMapping TypeName="EntityModel.tbl_Vehicles">
+        <MappingFragment StoreEntitySet="tbl_Vehicles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="VehiclePlate" ColumnName="VehiclePlate" />
+          <ScalarProperty Name="VehicleModel" ColumnName="VehicleModel" />
+          <ScalarProperty Name="VehicleSerial" ColumnName="VehicleSerial" />
+          <ScalarProperty Name="VehicleColor" ColumnName="VehicleColor" />
+          <ScalarProperty Name="VehicleImage" ColumnName="VehicleImage" />
+          <ScalarProperty Name="VehicleStatus" ColumnName="VehicleStatus" />
+          <ScalarProperty Name="SeatCount" ColumnName="SeatCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_VehicleType">
+      <EntityTypeMapping TypeName="EntityModel.tbl_VehicleType">
+        <MappingFragment StoreEntitySet="tbl_VehicleType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetSchedule" FunctionName="EntityModel.Store.GetSchedule">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EntityModel.GetSchedule_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FromStationId" ColumnName="FromStationId" />
+          <ScalarProperty Name="ToStationId" ColumnName="ToStationId" />
+          <ScalarProperty Name="TripStatusId" ColumnName="TripStatusId" />
+          <ScalarProperty Name="FromStation" ColumnName="FromStation" />
+          <ScalarProperty Name="ToStation" ColumnName="ToStation" />
+          <ScalarProperty Name="TripStatus" ColumnName="TripStatus" />
+          <ScalarProperty Name="TtripCost" ColumnName="TtripCost" />
+          <ScalarProperty Name="StringTime" ColumnName="StringTime" />
+          <ScalarProperty Name="TripTime" ColumnName="TripTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetStations" FunctionName="EntityModel.Store.GetStations">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EntityModel.GetStations_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="StationName" ColumnName="StationName" />
+          <ScalarProperty Name="StationAddress" ColumnName="StationAddress" />
+          <ScalarProperty Name="StationLongitude" ColumnName="StationLongitude" />
+          <ScalarProperty Name="StationLatitude" ColumnName="StationLatitude" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetVehicles" FunctionName="EntityModel.Store.GetVehicles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EntityModel.GetVehicles_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="VehiclePlate" ColumnName="VehiclePlate" />
+          <ScalarProperty Name="VehicleModel" ColumnName="VehicleModel" />
+          <ScalarProperty Name="VehicleSerial" ColumnName="VehicleSerial" />
+          <ScalarProperty Name="VehicleColor" ColumnName="VehicleColor" />
+          <ScalarProperty Name="VehicleImage" ColumnName="VehicleImage" />
+          <ScalarProperty Name="VehicleStatus" ColumnName="VehicleStatus" />
+          <ScalarProperty Name="SeatCount" ColumnName="SeatCount" />
+          <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_Company">
+      <EntityTypeMapping TypeName="EntityModel.tbl_Company">
+        <MappingFragment StoreEntitySet="tbl_Company">
+          <ScalarProperty Name="CompanyLogo" ColumnName="CompanyLogo" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+          <ScalarProperty Name="CompanyEmail" ColumnName="CompanyEmail" />
+          <ScalarProperty Name="CompanyMobile" ColumnName="CompanyMobile" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetBooking" FunctionName="EntityModel.Store.GetBooking">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EntityModel.GetBooking_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TripId" ColumnName="TripId" />
+          <ScalarProperty Name="PassengerId" ColumnName="PassengerId" />
+          <ScalarProperty Name="RegistDate" ColumnName="RegistDate" />
+          <ScalarProperty Name="BookStatus" ColumnName="BookStatus" />
+          <ScalarProperty Name="FromStationId" ColumnName="FromStationId" />
+          <ScalarProperty Name="ToStationId" ColumnName="ToStationId" />
+          <ScalarProperty Name="TtripCost" ColumnName="TtripCost" />
+          <ScalarProperty Name="TripStatusId" ColumnName="TripStatusId" />
+          <ScalarProperty Name="PassengerIdNum" ColumnName="PassengerIdNum" />
+          <ScalarProperty Name="PassengerName" ColumnName="PassengerName" />
+          <ScalarProperty Name="PassengerMobile" ColumnName="PassengerMobile" />
+          <ScalarProperty Name="PassengerEmail" ColumnName="PassengerEmail" />
+          <ScalarProperty Name="FromStation" ColumnName="FromStation" />
+          <ScalarProperty Name="ToStation" ColumnName="ToStation" />
+          <ScalarProperty Name="TripStatus" ColumnName="TripStatus" />
+          <ScalarProperty Name="StringTime" ColumnName="StringTime" />
+          <ScalarProperty Name="BookingRef" ColumnName="BookingRef" />
+          <ScalarProperty Name="TripTime" ColumnName="TripTime" />
+          <ScalarProperty Name="TravelDate" ColumnName="TravelDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbl_Booking">
+      <EntityTypeMapping TypeName="EntityModel.tbl_Booking">
+        <MappingFragment StoreEntitySet="tbl_Booking">
+          <ScalarProperty Name="TravelDate" ColumnName="TravelDate" />
+          <ScalarProperty Name="BookStatus" ColumnName="BookStatus" />
+          <ScalarProperty Name="RegistDate" ColumnName="RegistDate" />
+          <ScalarProperty Name="PassengerId" ColumnName="PassengerId" />
+          <ScalarProperty Name="tripId" ColumnName="tripId" />
+          <ScalarProperty Name="BookingRef" ColumnName="BookingRef" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_About">
+      <EntityTypeMapping TypeName="EntityModel.tbl_About">
+        <MappingFragment StoreEntitySet="tbl_About">
+          <ScalarProperty Name="aboutImg" ColumnName="aboutImg" />
+          <ScalarProperty Name="Paragraph" ColumnName="Paragraph" />
+          <ScalarProperty Name="ParagTitle" ColumnName="ParagTitle" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Schedule">
+      <EntityTypeMapping TypeName="EntityModel.tbl_Schedule">
+        <MappingFragment StoreEntitySet="tbl_Schedule">
+          <ScalarProperty Name="TripStatusId" ColumnName="TripStatusId" />
+          <ScalarProperty Name="TtripCost" ColumnName="TtripCost" />
+          <ScalarProperty Name="TripTime" ColumnName="TripTime" />
+          <ScalarProperty Name="ToStationId" ColumnName="ToStationId" />
+          <ScalarProperty Name="FromStationId" ColumnName="FromStationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

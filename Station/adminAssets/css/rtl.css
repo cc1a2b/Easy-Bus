@@ -1,0 +1,86 @@
+/* MAIN PANEL ****************************************************************/
+.main-panel { 
+    float: left;
+}
+/* SIDEBAR PANEL *************************************************************/
+.sidebar {
+    left: auto;
+    right: 0;
+}
+.sidebar .nav li.active > a:before, .off-canvas-sidebar .nav li.active > a:before {
+    border-left: 17px solid #DDDDDD;
+    border-right: inherit;
+    left: 0;
+    right: auto;
+}
+.sidebar .nav li.active > a:after, .off-canvas-sidebar .nav li.active > a:after {
+    border-right: inherit;
+    border-left: 17px solid #f4f3ef;
+    right: auto;
+    left: -1px;
+}
+.sidebar .nav i, .off-canvas-sidebar .nav i {
+    margin-right: auto;
+    margin-left: 15px;
+    float: right;
+}
+/* FORMS *********************************************************************/
+@media (min-width: 992px) {
+    .card form [class*="col-"]:first-child {
+        padding-right: 15px; 
+        padding-left: auto;
+    }
+    .card form [class*="col-"]:last-child {
+        padding-right: auto;
+        padding-left: 15px; 
+    }
+    .typo-line {
+        padding-right: 140px; 
+        padding-left: auto;
+    }
+    .typo-line .category {
+        left: auto;
+        right: 0;
+    }    
+}
+.card .table tbody td:first-child, .card .table thead th:first-child {
+    padding-left: 8px;
+    padding-right: 15px;
+}
+.card .table tbody td:last-child, .card .table thead th:last-child {
+    padding-right: 8px;
+    padding-left: 15px;
+}
+/* ALERTS ********************************************************************/
+.alert.alert-with-icon {
+    padding-left: 10px !important;
+    padding-right: 65px;
+}
+.alert span[data-notify="icon"] {
+    left: auto;
+    right: 15px;
+}
+.alert button.close {
+    left: 10px;
+    right: inherit;
+}
+/* DEMO PAGES ****************************************************************/
+@media (min-width: 992px) {
+    .typo-line {
+        padding-right: 140px; 
+        padding-left: auto;
+    }
+    .typo-line .category {
+        left: auto;
+        right: 0;
+    }    
+}
+.icon-container {
+    float: right;
+    text-align: right;
+}
+.icon-name {
+    margin-left: auto;
+    margin-right: 35px;
+}
+/*****************************************************************************/

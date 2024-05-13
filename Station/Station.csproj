@@ -1,0 +1,623 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{06B77C2D-9696-4BA1-8812-8AD5E1CA3803}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Station</RootNamespace>
+    <AssemblyName>Station</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1537.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1537.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1537.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1537.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1537.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="adminAssets\css\animate.min.css" />
+    <Content Include="adminAssets\css\bootstrap-rtl.min.css" />
+    <Content Include="adminAssets\css\bootstrap.min.css" />
+    <Content Include="adminAssets\css\demo.css" />
+    <Content Include="adminAssets\css\paper-dashboard.css" />
+    <Content Include="adminAssets\css\rtl.css" />
+    <Content Include="adminAssets\css\themify-icons.css" />
+    <Content Include="adminAssets\fonts\themify.svg" />
+    <Content Include="adminAssets\img\apple-icon.png" />
+    <Content Include="adminAssets\img\background.jpg" />
+    <Content Include="adminAssets\img\faces\face-0.jpg" />
+    <Content Include="adminAssets\img\faces\face-1.jpg" />
+    <Content Include="adminAssets\img\faces\face-2.jpg" />
+    <Content Include="adminAssets\img\faces\face-3.jpg" />
+    <Content Include="adminAssets\img\favicon.png" />
+    <Content Include="adminAssets\img\new_logo.png" />
+    <Content Include="adminAssets\img\tim_80x80.png" />
+    <Content Include="adminAssets\js\bootstrap-checkbox-radio.js" />
+    <Content Include="adminAssets\js\bootstrap-notify.js" />
+    <Content Include="adminAssets\js\bootstrap.min.js" />
+    <Content Include="adminAssets\js\chartist.min.js" />
+    <Content Include="adminAssets\js\demo.js" />
+    <Content Include="adminAssets\js\jquery-1.10.2.js" />
+    <Content Include="adminAssets\js\paper-dashboard.js" />
+    <Content Include="admin\default.aspx" />
+    <Content Include="admin\setting\city.aspx" />
+    <Content Include="admin\setting\company.aspx" />
+    <Content Include="admin\setting\SettingUserControl.ascx" />
+    <Content Include="admin\setting\stations.aspx" />
+    <Content Include="admin\trips\booking.aspx" />
+    <Content Include="admin\trips\tripUserControl.ascx" />
+    <Content Include="admin\vehicles\driverList.aspx" />
+    <Content Include="admin\vehicles\vehicleUserControl.ascx" />
+    <Content Include="admin\vehicles\vehicleList.aspx" />
+    <Content Include="admin\vehicles\vehicleType.aspx" />
+    <Content Include="admin\trips\passengerList.aspx" />
+    <Content Include="admin\trips\schedule.aspx" />
+    <Content Include="admin\setting\tripSatus.aspx" />
+    <Content Include="admin\users\userList.aspx" />
+    <Content Include="admin\users\userModify.aspx" />
+    <Content Include="DataModel\DBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataModel\DBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Error404.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="register.aspx" />
+    <Content Include="login.aspx" />
+    <Content Include="Reports\Default.aspx" />
+    <Content Include="siteAssets\css\animate.css" />
+    <Content Include="siteAssets\css\bootstrap-datepicker.min.css" />
+    <Content Include="siteAssets\css\bootstrap.min.css" />
+    <Content Include="siteAssets\css\default-assets\classy-nav.css" />
+    <Content Include="siteAssets\css\font-awesome.min.css" />
+    <Content Include="siteAssets\css\fonts\ElegantIcons.svg" />
+    <Content Include="siteAssets\css\jquery-ui.min.css" />
+    <Content Include="siteAssets\css\magnific-popup.css" />
+    <Content Include="siteAssets\css\nice-select.css" />
+    <Content Include="siteAssets\css\owl.carousel.min.css" />
+    <Content Include="siteAssets\css\style.css" />
+    <Content Include="siteAssets\fonts\classy-fonts.svg" />
+    <Content Include="siteAssets\fonts\fontawesome-webfont.svg" />
+    <Content Include="siteAssets\img\bg-img\1.jpg" />
+    <Content Include="siteAssets\img\bg-img\18.jpg" />
+    <Content Include="siteAssets\img\bg-img\bus1.jpg" />
+    <Content Include="siteAssets\img\bg-img\bus2.png" />
+    <Content Include="siteAssets\img\bg-img\bus3.jpg" />
+    <Content Include="siteAssets\img\bg-img\bus4.png" />
+    <Content Include="siteAssets\img\bg-img\bus5.png" />
+    <Content Include="siteAssets\img\bg-img\bus6.png" />
+    <Content Include="siteAssets\img\bg-img\bus7.png" />
+    <Content Include="siteAssets\img\bg-img\corporativos.jpeg" />
+    <Content Include="siteAssets\img\bg-img\fleet1.jpg" />
+    <Content Include="siteAssets\img\bg-img\fleet2.jpe" />
+    <Content Include="siteAssets\img\bg-img\fleet3.png" />
+    <Content Include="siteAssets\img\bg-img\ReisePortal.jpg" />
+    <Content Include="siteAssets\img\core-img\favicon.png" />
+    <Content Include="siteAssets\img\core-img\icon-1.png" />
+    <Content Include="siteAssets\img\core-img\icon-2.png" />
+    <Content Include="siteAssets\img\core-img\icon-3.png" />
+    <Content Include="siteAssets\img\core-img\icon-4.png" />
+    <Content Include="siteAssets\img\core-img\icon1.png" />
+    <Content Include="siteAssets\img\core-img\icon2.png" />
+    <Content Include="siteAssets\img\core-img\icon3.png" />
+    <Content Include="siteAssets\img\core-img\icon4.png" />
+    <Content Include="siteAssets\img\core-img\icon5.png" />
+    <Content Include="siteAssets\img\core-img\icon6.png" />
+    <Content Include="siteAssets\img\core-img\logo.png" />
+    <Content Include="siteAssets\img\core-img\logo2.png" />
+    <Content Include="siteAssets\img\core-img\p1.png" />
+    <Content Include="siteAssets\img\core-img\p2.png" />
+    <Content Include="siteAssets\img\core-img\p3.png" />
+    <Content Include="siteAssets\img\core-img\p4.png" />
+    <Content Include="siteAssets\img\core-img\p5.png" />
+    <Content Include="siteAssets\img\core-img\quote.png" />
+    <Content Include="siteAssets\img\core-img\signature.png" />
+    <Content Include="siteAssets\js\bootstrap-datepicker.min.js" />
+    <Content Include="siteAssets\js\bootstrap.min.js" />
+    <Content Include="siteAssets\js\default-assets\active.js" />
+    <Content Include="siteAssets\js\default-assets\avoid.console.error.js" />
+    <Content Include="siteAssets\js\default-assets\classy-nav.js" />
+    <Content Include="siteAssets\js\default-assets\jquery.scrollup.min.js" />
+    <Content Include="siteAssets\js\imagesloaded.pkgd.min.js" />
+    <Content Include="siteAssets\js\isotope.pkgd.min.js" />
+    <Content Include="siteAssets\js\jarallax-video.min.js" />
+    <Content Include="siteAssets\js\jarallax.min.js" />
+    <Content Include="siteAssets\js\jquery-ui.min.js" />
+    <Content Include="siteAssets\js\jquery.countdown.min.js" />
+    <Content Include="siteAssets\js\jquery.counterup.min.js" />
+    <Content Include="siteAssets\js\jquery.easing.min.js" />
+    <Content Include="siteAssets\js\jquery.magnific-popup.min.js" />
+    <Content Include="siteAssets\js\jquery.min.js" />
+    <Content Include="siteAssets\js\jquery.nice-select.min.js" />
+    <Content Include="siteAssets\js\jsCompLocation.js" />
+    <Content Include="siteAssets\js\owl.carousel.min.js" />
+    <Content Include="siteAssets\js\popper.min.js" />
+    <Content Include="siteAssets\js\roberto.bundle.js" />
+    <Content Include="siteAssets\js\waypoints.min.js" />
+    <Content Include="siteAssets\js\wow.min.js" />
+    <Content Include="siteAssets\login\style.css" />
+    <Content Include="siteAssets\style.css" />
+    <Content Include="site\about.aspx" />
+    <Content Include="site\booking.aspx" />
+    <Content Include="site\clientProfile.aspx" />
+    <Content Include="site\contact.aspx" />
+    <Content Include="site\index.aspx" />
+    <Content Include="site\schedule.aspx" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="adminMaster.Master.cs">
+      <DependentUpon>adminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminMaster.Master.designer.cs">
+      <DependentUpon>adminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\setting\city.aspx.cs">
+      <DependentUpon>city.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\setting\city.aspx.designer.cs">
+      <DependentUpon>city.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\setting\company.aspx.cs">
+      <DependentUpon>company.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\setting\company.aspx.designer.cs">
+      <DependentUpon>company.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\setting\SettingUserControl.ascx.cs">
+      <DependentUpon>SettingUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\setting\SettingUserControl.ascx.designer.cs">
+      <DependentUpon>SettingUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\setting\stations.aspx.cs">
+      <DependentUpon>stations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\setting\stations.aspx.designer.cs">
+      <DependentUpon>stations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\trips\booking.aspx.cs">
+      <DependentUpon>booking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\trips\booking.aspx.designer.cs">
+      <DependentUpon>booking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\trips\tripUserControl.ascx.cs">
+      <DependentUpon>tripUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\trips\tripUserControl.ascx.designer.cs">
+      <DependentUpon>tripUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\vehicles\driverList.aspx.cs">
+      <DependentUpon>driverList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\vehicles\driverList.aspx.designer.cs">
+      <DependentUpon>driverList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\vehicles\vehicleUserControl.ascx.cs">
+      <DependentUpon>vehicleUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\vehicles\vehicleUserControl.ascx.designer.cs">
+      <DependentUpon>vehicleUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\vehicles\vehicleList.aspx.cs">
+      <DependentUpon>vehicleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\vehicles\vehicleList.aspx.designer.cs">
+      <DependentUpon>vehicleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\vehicles\vehicleType.aspx.cs">
+      <DependentUpon>vehicleType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\vehicles\vehicleType.aspx.designer.cs">
+      <DependentUpon>vehicleType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\trips\passengerList.aspx.cs">
+      <DependentUpon>passengerList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\trips\passengerList.aspx.designer.cs">
+      <DependentUpon>passengerList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\trips\schedule.aspx.cs">
+      <DependentUpon>schedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\trips\schedule.aspx.designer.cs">
+      <DependentUpon>schedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\setting\tripSatus.aspx.cs">
+      <DependentUpon>tripSatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\setting\tripSatus.aspx.designer.cs">
+      <DependentUpon>tripSatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\users\userList.aspx.cs">
+      <DependentUpon>userList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\users\userList.aspx.designer.cs">
+      <DependentUpon>userList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\users\userModify.aspx.cs">
+      <DependentUpon>userModify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\users\userModify.aspx.designer.cs">
+      <DependentUpon>userModify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Lang.ar-SA.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lang.ar-SA.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Lang.en-US.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lang.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="classes\AlertMessage.cs" />
+    <Compile Include="classes\Connection.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="classes\CompanyInfo.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="classes\UserSetting.cs" />
+    <Compile Include="DataModel\DBModel.Context.cs">
+      <DependentUpon>DBModel.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataModel\DBModel.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataModel\DBModel.Designer.cs">
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DataModel\GetBooking_Result.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\GetSchedule_Result.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\GetStations_Result.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\GetVehicles_Result.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\tbl_About.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\tbl_Booking.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\tbl_City.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\tbl_Company.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\tbl_Drivers.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\tbl_Passengers.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\tbl_Schedule.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\tbl_Stations.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\tbl_TripStatus.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\tbl_Users.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\tbl_Vehicles.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel\tbl_VehicleType.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Error404.aspx.cs">
+      <DependentUpon>Error404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error404.aspx.designer.cs">
+      <DependentUpon>Error404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="siteMaster.Master.cs">
+      <DependentUpon>siteMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="siteMaster.Master.designer.cs">
+      <DependentUpon>siteMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="site\about.aspx.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\about.aspx.designer.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\booking.aspx.cs">
+      <DependentUpon>booking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\booking.aspx.designer.cs">
+      <DependentUpon>booking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\clientProfile.aspx.cs">
+      <DependentUpon>clientProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\clientProfile.aspx.designer.cs">
+      <DependentUpon>clientProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\contact.aspx.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\contact.aspx.designer.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\schedule.aspx.cs">
+      <DependentUpon>schedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\schedule.aspx.designer.cs">
+      <DependentUpon>schedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="adminMaster.Master" />
+    <Content Include="adminAssets\fonts\themify.eot" />
+    <Content Include="adminAssets\fonts\themify.ttf" />
+    <Content Include="adminAssets\fonts\themify.woff" />
+    <EntityDeploy Include="DataModel\DBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DataModel\DBModel.edmx.diagram">
+      <DependentUpon>DBModel.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="siteMaster.Master" />
+    <Content Include="siteAssets\css\fonts\ElegantIcons.eot" />
+    <Content Include="siteAssets\css\fonts\ElegantIcons.ttf" />
+    <Content Include="siteAssets\css\fonts\ElegantIcons.woff" />
+    <Content Include="siteAssets\fonts\classy-fonts.eot" />
+    <Content Include="siteAssets\fonts\classy-fonts.ttf" />
+    <Content Include="siteAssets\fonts\classy-fonts.woff" />
+    <Content Include="siteAssets\fonts\fontawesome-webfont.eot" />
+    <Content Include="siteAssets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="siteAssets\fonts\fontawesome-webfont.woff" />
+    <Content Include="siteAssets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="siteAssets\fonts\FontAwesome.otf" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="uploads\vehicles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_GlobalResources\Lang.ar-SA.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Lang.ar-SA.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ClientInvoice_Rp.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_GlobalResources\Lang.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Lang.en-US.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62506</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:44317/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EntityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Stations" Relationship="Self.FK_tbl_Stations_tbl_City" FromRole="tbl_City" ToRole="tbl_Stations" />
+  </EntityType>
+  <EntityType Name="tbl_Drivers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DriverName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DriverIdNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DriverMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DriverAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Passengers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PassengerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PassengerIdNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PassengerMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PassengerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Booking" Relationship="EntityModel.FK_tbl_Booking_tbl_Passengers" FromRole="tbl_Passengers" ToRole="tbl_Booking" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Stations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="StationName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StationAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StationLongitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StationLatitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_City" Relationship="Self.FK_tbl_Stations_tbl_City" FromRole="tbl_Stations" ToRole="tbl_City" />
+    <NavigationProperty Name="tbl_Users" Relationship="Self.FK_tbl_Users_tbl_Stations" FromRole="tbl_Stations" ToRole="tbl_Users" />
+  </EntityType>
+  <EntityType Name="tbl_TripStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TripStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StationId" Type="Int32" />
+    <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Stations" Relationship="Self.FK_tbl_Users_tbl_Stations" FromRole="tbl_Users" ToRole="tbl_Stations" />
+  </EntityType>
+  <EntityType Name="tbl_Vehicles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeId" Type="Int32" />
+    <Property Name="VehiclePlate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VehicleModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VehicleSerial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VehicleColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="VehicleImage" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="VehicleStatus" Type="Int32" />
+    <Property Name="SeatCount" Type="Int32" />
+    <NavigationProperty Name="tbl_VehicleType" Relationship="Self.FK_tbl_Vehicles_tbl_VehicleType" FromRole="tbl_Vehicles" ToRole="tbl_VehicleType" />
+  </EntityType>
+  <EntityType Name="tbl_VehicleType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VehicleType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Vehicles" Relationship="Self.FK_tbl_Vehicles_tbl_VehicleType" FromRole="tbl_VehicleType" ToRole="tbl_Vehicles" />
+  </EntityType>
+  <Association Name="FK_tbl_Stations_tbl_City">
+    <End Role="tbl_City" Type="Self.tbl_City" Multiplicity="0..1" />
+    <End Role="tbl_Stations" Type="Self.tbl_Stations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Stations">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Users_tbl_Stations">
+    <End Role="tbl_Stations" Type="Self.tbl_Stations" Multiplicity="0..1" />
+    <End Role="tbl_Users" Type="Self.tbl_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Stations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Users">
+        <PropertyRef Name="StationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Vehicles_tbl_VehicleType">
+    <End Role="tbl_VehicleType" Type="Self.tbl_VehicleType" Multiplicity="0..1" />
+    <End Role="tbl_Vehicles" Type="Self.tbl_Vehicles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_VehicleType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Vehicles">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_City" EntityType="Self.tbl_City" />
+    <EntitySet Name="tbl_Drivers" EntityType="Self.tbl_Drivers" />
+    <EntitySet Name="tbl_Passengers" EntityType="Self.tbl_Passengers" />
+    <EntitySet Name="tbl_Stations" EntityType="Self.tbl_Stations" />
+    <EntitySet Name="tbl_TripStatus" EntityType="Self.tbl_TripStatus" />
+    <EntitySet Name="tbl_Users" EntityType="Self.tbl_Users" />
+    <EntitySet Name="tbl_Vehicles" EntityType="Self.tbl_Vehicles" />
+    <EntitySet Name="tbl_VehicleType" EntityType="Self.tbl_VehicleType" />
+    <AssociationSet Name="FK_tbl_Stations_tbl_City" Association="Self.FK_tbl_Stations_tbl_City">
+      <End Role="tbl_City" EntitySet="tbl_City" />
+      <End Role="tbl_Stations" EntitySet="tbl_Stations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Users_tbl_Stations" Association="Self.FK_tbl_Users_tbl_Stations">
+      <End Role="tbl_Stations" EntitySet="tbl_Stations" />
+      <End Role="tbl_Users" EntitySet="tbl_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Vehicles_tbl_VehicleType" Association="Self.FK_tbl_Vehicles_tbl_VehicleType">
+      <End Role="tbl_VehicleType" EntitySet="tbl_VehicleType" />
+      <End Role="tbl_Vehicles" EntitySet="tbl_Vehicles" />
+    </AssociationSet>
+    <FunctionImport Name="GetSchedule" ReturnType="Collection(EntityModel.GetSchedule_Result)" />
+    <FunctionImport Name="GetStations" ReturnType="Collection(EntityModel.GetStations_Result)" />
+    <FunctionImport Name="GetVehicles" ReturnType="Collection(EntityModel.GetVehicles_Result)" />
+    <EntitySet Name="tbl_Company" EntityType="EntityModel.tbl_Company" />
+    <FunctionImport Name="GetBooking" ReturnType="Collection(EntityModel.GetBooking_Result)" />
+    <EntitySet Name="tbl_Booking" EntityType="EntityModel.tbl_Booking" />
+    <AssociationSet Name="FK_tbl_Booking_tbl_Passengers" Association="EntityModel.FK_tbl_Booking_tbl_Passengers">
+      <End Role="tbl_Passengers" EntitySet="tbl_Passengers" />
+      <End Role="tbl_Booking" EntitySet="tbl_Booking" />
+    </AssociationSet>
+    <EntitySet Name="tbl_About" EntityType="EntityModel.tbl_About" />
+    <EntitySet Name="tbl_Schedule" EntityType="EntityModel.tbl_Schedule" />
+    <AssociationSet Name="FK_tbl_Booking_tbl_Schedule" Association="EntityModel.FK_tbl_Booking_tbl_Schedule">
+      <End Role="tbl_Schedule" EntitySet="tbl_Schedule" />
+      <End Role="tbl_Booking" EntitySet="tbl_Booking" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="GetSchedule_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="FromStationId" Nullable="true" />
+    <Property Type="Int32" Name="ToStationId" Nullable="true" />
+    <Property Type="Int32" Name="TripStatusId" Nullable="true" />
+    <Property Type="String" Name="FromStation" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ToStation" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TripStatus" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="TtripCost" Nullable="true" />
+    <Property Type="String" Name="StringTime" Nullable="true" MaxLength="7" />
+    <Property Type="Time" Name="TripTime" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetStations_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="CityId" Nullable="true" />
+    <Property Type="String" Name="StationName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StationAddress" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StationLongitude" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StationLatitude" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CityName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetVehicles_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="TypeId" Nullable="true" />
+    <Property Type="String" Name="VehiclePlate" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VehicleModel" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VehicleSerial" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VehicleColor" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="VehicleImage" Nullable="true" MaxLength="350" />
+    <Property Type="Int32" Name="VehicleStatus" Nullable="true" />
+    <Property Type="Int32" Name="SeatCount" Nullable="true" />
+    <Property Type="String" Name="VehicleType" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="tbl_Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyLogo" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="GetBooking_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="TripId" Nullable="true" />
+    <Property Type="Int32" Name="PassengerId" Nullable="true" />
+    <Property Type="DateTime" Name="RegistDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="BookStatus" Nullable="true" />
+    <Property Type="Int32" Name="FromStationId" Nullable="true" />
+    <Property Type="Int32" Name="ToStationId" Nullable="true" />
+    <Property Type="Double" Name="TtripCost" Nullable="true" />
+    <Property Type="Int32" Name="TripStatusId" Nullable="true" />
+    <Property Type="String" Name="PassengerIdNum" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PassengerName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PassengerMobile" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="PassengerEmail" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FromStation" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ToStation" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="TripStatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StringTime" Nullable="true" MaxLength="7" />
+    <Property Type="Int32" Name="BookingRef" Nullable="true" />
+    <Property Type="Time" Name="TripTime" Nullable="true" />
+    <Property Type="DateTime" Name="TravelDate" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="tbl_Booking">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookingRef" Type="Int32" />
+    <Property Name="tripId" Type="Int32" />
+    <Property Name="PassengerId" Type="Int32" />
+    <Property Name="RegistDate" Type="DateTime" Precision="3" />
+    <Property Name="BookStatus" Type="Int32" />
+    <NavigationProperty Name="tbl_Passengers" Relationship="EntityModel.FK_tbl_Booking_tbl_Passengers" FromRole="tbl_Booking" ToRole="tbl_Passengers" />
+    <NavigationProperty Name="tbl_Schedule" Relationship="EntityModel.FK_tbl_Booking_tbl_Schedule" FromRole="tbl_Booking" ToRole="tbl_Schedule" />
+    <Property Name="TravelDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <Association Name="FK_tbl_Booking_tbl_Passengers">
+    <End Type="EntityModel.tbl_Passengers" Role="tbl_Passengers" Multiplicity="0..1" />
+    <End Type="EntityModel.tbl_Booking" Role="tbl_Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Passengers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Booking">
+        <PropertyRef Name="PassengerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_About">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParagTitle" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="Paragraph" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="aboutImg" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Schedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FromStationId" Type="Int32" />
+    <Property Name="ToStationId" Type="Int32" />
+    <Property Name="TripTime" Type="Time" Precision="7" />
+    <Property Name="TtripCost" Type="Double" />
+    <Property Name="TripStatusId" Type="Int32" />
+    <NavigationProperty Name="tbl_Booking" Relationship="EntityModel.FK_tbl_Booking_tbl_Schedule" FromRole="tbl_Schedule" ToRole="tbl_Booking" />
+  </EntityType>
+  <Association Name="FK_tbl_Booking_tbl_Schedule">
+    <End Type="EntityModel.tbl_Schedule" Role="tbl_Schedule" Multiplicity="0..1" />
+    <End Type="EntityModel.tbl_Booking" Role="tbl_Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Schedule">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_Booking">
+        <PropertyRef Name="tripId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

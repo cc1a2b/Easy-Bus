@@ -1,0 +1,272 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="siteMaster.master.cs" Inherits="Station.siteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en" dir='<%= UserSetting.ci.ToString() =="ar-SA"? "rtl" : "ltr" %>'>
+
+<head runat="server">
+    <!-- Title -->
+    <title>
+        <asp:ContentPlaceHolder ID="title" runat="server">
+        </asp:ContentPlaceHolder>
+    </title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicon -->
+    <link rel="icon" href="<%= ResolveUrl("~")+"uploads/"+ companyInfo.CompanyLogo %>" />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="<%= ResolveUrl("~") %>siteAssets/style.css" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="loader"></div>
+        </div>
+        <!-- /Preloader -->
+        <!-- Header Area Start -->
+        <header class="header-area">
+            <!-- Top Header Area Start -->
+            <div class="top-header-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="top-header-content">
+                                <a href="#"><i class="icon_phone"></i><span><%= companyInfo.CompanyMobile %></span></a>
+                                <a href="#"><i class="icon_mail"></i><span><%= companyInfo.CompanyEmail %></span></a>
+                                <%--<a href="../../login.aspx"><i class="icon_lock"></i><span>Login</span></a>--%>
+                                <asp:LinkButton ID="btnlang" runat="server" OnClick="btnlang_Click">
+                                    <i class="fa fa-language"></i>
+                                    <span>
+                                        <%= UserSetting.rm.GetString(UserSetting.ci.ToString() =="ar-SA"? "English" : "العربية" , UserSetting.ci) %>
+                                    </span>
+                                </asp:LinkButton>
+                                <a href="../../login.aspx"><i class="fa fa-user"></i>
+                                    <span>
+                                        <%= Session["PassengerName"] != null? Session["PassengerName"].ToString() : "Login" %>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <%--<div class="col-6">
+                            <div class="top-header-content">
+                                <!-- Top Social Area -->
+                                <div class="top-social-area ml-auto">
+                                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-tripadvisor" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>--%>
+                    </div>
+                </div>
+            </div>
+            <!-- Top Header Area End -->
+
+            <!-- Main Header Start -->
+            <div class="main-header-area">
+                <div class="classy-nav-container breakpoint-off">
+                    <div class="container">
+                        <!-- Classy Menu -->
+                        <nav class="classy-navbar justify-content-between" id="robertoNav">
+
+                            <!-- Logo -->
+                            <a class="nav-brand" href="../../site/index.aspx">
+                                <%--<img src="<%= ResolveUrl("~") %>siteAssets/img/core-img/logo.png" alt="">--%>
+                                <%--<img src="<%= ResolveUrl("~") %>siteAssets/img/web-img/logo3.jpg" style="max-height: 75px;" alt="">--%>
+                                <img src='<%= ResolveUrl("~")+"uploads/"+companyInfo.CompanyLogo %>' style="max-height: 75px;" alt="logo" />
+                            </a>
+
+                            <!-- Navbar Toggler -->
+                            <div class="classy-navbar-toggler">
+                                <span class="navbarToggler"><span></span><span></span><span></span></span>
+                            </div>
+
+                            <!-- Menu -->
+                            <div class="classy-menu">
+                                <!-- Menu Close Button -->
+                                <div class="classycloseIcon">
+                                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                                </div>
+                                <!-- Nav Start -->
+                                <div class="classynav">
+                                    <ul id="nav">
+                                        <li>
+                                            <a href='<%= Session["PassengerId"] != null? "../../site/clientProfile.aspx" : "#" %>'><%= Session["PassengerId"] != null? UserSetting.rm.GetString("My Account", UserSetting.ci) : "" %></a>
+
+                                        </li>
+                                        <li class="active"><a href="../../site/index.aspx"><%= UserSetting.rm.GetString("Home", UserSetting.ci) %></a></li>
+                                        <li><a href="../../site/about.aspx"><%= UserSetting.rm.GetString("About Us", UserSetting.ci) %></a></li>
+                                        <%--<li><a href="../../site/schedule.aspx">جدول الرحلات</a></li>--%>
+                                        <li><a href="../../site/contact.aspx"><%= UserSetting.rm.GetString("Contact Us", UserSetting.ci) %></a></li>
+
+                                    </ul>
+                                    <!-- Book Now -->
+                                    <div class="book-now-btn ml-3 ml-lg-5">
+                                        <a href="../../site/booking.aspx"><%= UserSetting.rm.GetString("Book Now", UserSetting.ci) %> <i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <!-- Nav End -->
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Header Area End -->
+
+        <div>
+            <asp:ContentPlaceHolder ID="body" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <!-- Call To Action Area Start -->
+        <section class="roberto-cta-area">
+            <div class="container">
+                <div class="cta-content bg-img bg-overlay jarallax" style="background-image: url(../../siteAssets/img/bg-img/1.jpg);">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-7">
+                            <div class="cta-text mb-50">
+                                <h2><%= UserSetting.rm.GetString("Contact Us", UserSetting.ci) %>!</h2>
+                                <h6><%= UserSetting.rm.GetString("For reservation contact the number", UserSetting.ci) %> <span dir="ltr"><%= companyInfo.CompanyMobile %></span></h6>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-5 text-right">
+                            <a href="../../site/contact.aspx" class="btn roberto-btn mb-50"><%= UserSetting.rm.GetString("Contact Us", UserSetting.ci) %></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Call To Action Area End -->
+
+        <!-- Partner Area Start -->
+        <div class="partner-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="partner-logo-content d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="300ms">
+                            <%-- -- Single Partner Logo 
+                            <a href="#" class="partner-logo">
+                                <img src="<%= ResolveUrl("~") %>siteAssets/img/core-img/p1.png" alt=""></a>
+                            <!-- Single Partner Logo --
+                            <a href="#" class="partner-logo">
+                                <img src="<%= ResolveUrl("~") %>siteAssets/img/core-img/p2.png" alt=""></a>
+                            <!-- Single Partner Logo --
+                            <a href="#" class="partner-logo">
+                                <img src="<%= ResolveUrl("~") %>siteAssets/img/core-img/p3.png" alt=""></a>
+                            <!-- Single Partner Logo --
+                            <a href="#" class="partner-logo">
+                                <img src="<%= ResolveUrl("~") %>siteAssets/img/core-img/p4.png" alt=""></a>
+                            <!-- Single Partner Logo --
+                            <a href="#" class="partner-logo"
+                                <img src="<%= ResolveUrl("~") %>siteAssets/img/core-img/p5.png" alt=""></a> --%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Partner Area End -->
+
+        <!-- Footer Area Start -->
+        <footer class="footer-area section-padding-80-0">
+            <!-- Main Footer Area -->
+            <div class="main-footer-area">
+                <div class="container">
+                    <div class="row align-items-baseline justify-content-between">
+                        <!-- Single Footer Widget Area -->
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <div class="single-footer-widget mb-80">
+                                <!-- Footer Logo -->
+                                <%--<a href="#" class="footer-logo">
+                                    <img src="<%= ResolveUrl("~") %>siteAssets/img/web-img/logo3.jpg" style="max-width: 160px; max-height: 75px;" alt="">
+                                </a>--%>
+
+                                <h4><%= companyInfo.CompanyMobile %></h4>
+                                <span><%= companyInfo.CompanyEmail %></span>
+                                <span><%= companyInfo.CompanyAddress %></span>
+                            </div>
+                        </div>
+                        <!-- Single Footer Widget Area -->
+                        <div class="col-12 col-sm-4 col-lg-2">
+                            <div class="single-footer-widget mb-80">
+                                <!-- Widget Title -->
+                                <h5 class="widget-title"><%= UserSetting.rm.GetString("Direct Links", UserSetting.ci) %></h5>
+
+                                <!-- Footer Nav -->
+                                <ul class="footer-nav">
+                                    <li><a href="../../site/about.aspx"><i class="fa fa-caret-right" aria-hidden="true"></i>&nbsp;<%= UserSetting.rm.GetString("About Us", UserSetting.ci) %></a></li>
+                                    <li><a href="../../site/contact.aspx"><i class="fa fa-caret-right" aria-hidden="true"></i>&nbsp;<%= UserSetting.rm.GetString("Contact Us", UserSetting.ci) %></a></li>
+                                    <li><a href="../../site/booking.aspx"><i class="fa fa-caret-right" aria-hidden="true"></i>&nbsp;<%= UserSetting.rm.GetString("Book Now", UserSetting.ci) %></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Single Footer Widget Area -->
+                        <div class="col-12 col-sm-8 col-lg-4">
+                            <div class="single-footer-widget mb-80">
+                                <!-- Widget Title -->
+                                <h5 class="widget-title"><%= UserSetting.rm.GetString("Subscribe Newsletter", UserSetting.ci) %></h5>
+                                <span><%= UserSetting.rm.GetString("Subscribe our newsletter or get notification about new updates.", UserSetting.ci) %></span>
+
+                                <!-- Newsletter Form -->
+                                <div action="index.aspx" class="nl-form">
+                                    <input type="email" class="form-control" placeholder="Enter your email...">
+                                    <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copywrite Area -->
+            <div class="container">
+                <div class="copywrite-content">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-8">
+                            <!-- Copywrite Text -->
+                            <div class="copywrite-text">
+                                <p>
+                                   <%--  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                                    All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;by&nbsp;<a href="../../site/index.aspx" target="_blank">Easy Bus</a>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> --%>
+                                </p>
+                            </div>
+                        </div>
+                        <%--<div class="col-12 col-md-4">
+                            <!-- Social Info -->
+                            <div class="social-info">
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </div>--%>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Area End -->
+
+        <!-- **** All JS Files ***** -->
+        <!-- jQuery 2.2.4 -->
+        <script src="<%= ResolveUrl("~") %>siteAssets/js/jquery.min.js"></script>
+        <!-- Popper -->
+        <script src="<%= ResolveUrl("~") %>siteAssets/js/popper.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="<%= ResolveUrl("~") %>siteAssets/js/bootstrap.min.js"></script>
+        <!-- All Plugins -->
+        <script src="<%= ResolveUrl("~") %>siteAssets/js/roberto.bundle.js"></script>
+        <!-- Active -->
+        <script src="<%= ResolveUrl("~") %>siteAssets/js/default-assets/active.js"></script>
+    </form>
+</body>
+</html>
