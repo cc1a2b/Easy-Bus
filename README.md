@@ -17,8 +17,7 @@ User Interface: Easy navigation through the site with user-friendly design.
 
 
 Screenshots
-Login Screen
-![Screenshot (443)](https://github.com/cc1a2b/Easy-Bus/assets/101569980/b0dd89a4-28e9-48eb-98b4-9b5ea46b1265)
+
 
 
 Main Interface
